@@ -1,2 +1,20 @@
-# Kaggle_Game_Blood_Vessel
-copywrite@CHENandXu
+# 比赛记录
+比赛网址：https://www.kaggle.com/competitions/hubmap-hacking-the-human-vasculature
+参赛：Xi CHEN, Xiaoxu XU
+结果：public 242/1022, private 558/1022
+日期：6.19 - 8.1
+使用模型：yolo_v7, sam, mask-rcnn, u-net
+
+CHEN's works
+第一阶段：学习sam的代码并做修改 6.19 - 7.3
+学习了一个notebook的sam代码 -> 学习并放到本地跑，Pytorch lightning太慢嘞 -> 从网上拉取了一个medsam代码，改为自己能用的ddp版本，以及batch化 -> 最终发现，sam在医学分割上效果特别差，就放弃了
+第二阶段：mask-rcnn研究阶段 7.3 - 7.16
+看到一个大佬公布的mask-rcnn代码，他的well-tuned权重有0.449的评分，而我本地训练只能有0.35左右的评分。大受震撼，遂全力研究。经过多次研究和比对，最终发现，参数、模型都不是关键，最关键的是人家动了数据。使用其公布的权重，在无标签数据上赋了3000张伪标签，手工删除一些后，与原数据一起混合训练原模型，最终在7.16达到了0.448的提交成绩。心情大好。
+第三阶段：寻找突破 7.17 - 8.1
+这个阶段希冀在0.448的基础上有突破，0.47就能上public的榜。但是生病了，也摆烂了。最终公布成绩后发现，0.448的模型在private榜上，成绩掉到了0.35；学习的那位大佬也名落孙山。被这家伙带跑偏了，过拟合严重，以至于在wsi-5上成绩太差。
+
+经验：
+
+
+
+
